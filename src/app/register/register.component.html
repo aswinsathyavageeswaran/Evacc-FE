@@ -1,0 +1,61 @@
+<div class="register-page-container">
+    <div class="register-form">
+        <div class="heading">
+            {{isRegistrationPage ? "Register" : "Profile"}} 
+            <div class="registration-note" *ngIf="isRegistrationPage">
+                * This is a registration page for Guardian. If you register you will be consider as a Guardian
+            </div>
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm.value)">
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="name" formControlName="FullName" autocomplete="off" placeholder="Name">
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="address" formControlName="Address" autocomplete="off" placeholder="Address">
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="pincode" formControlName="PinCode" autocomplete="off" placeholder="Pincode" maxlength="6" type="number">
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="phone" formControlName="Mobile" autocomplete="off" placeholder="Mobile Number" maxlength="10" type="number">
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="emailId" formControlName="Email" autocomplete="off" placeholder="Email"
+                        type="text">
+                </mat-form-field>
+            </section>
+            <section *ngIf="isRegistrationPage">
+                    <mat-form-field class="full-width-field">
+                        <input matInput id="username" formControlName="UserName" autocomplete="off" placeholder="UserName"
+                            type="text">
+                    </mat-form-field>
+                </section>
+            <section *ngIf="isRegistrationPage">
+                <mat-form-field class="full-width-field">
+                    <input matInput id="password" formControlName="Password" autocomplete="off" placeholder="Password"
+                        type="password">
+                </mat-form-field>
+            </section>
+            <section *ngIf="isRegistrationPage">
+                <mat-form-field class="full-width-field">
+                    <input matInput id="confirmPassword" formControlName="ConfirmPassword" autocomplete="off"
+                        placeholder="Confrim Password" type="password">
+                </mat-form-field>
+            </section>
+            <div class="submit-button-container">
+                <button [disabled]="!registerForm.valid" mat-raised-button type="submit"
+                    class="submit-button">{{isRegistrationPage ? "Register" : "Save"}}</button>
+            </div>
+        </form>
+    </div>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>

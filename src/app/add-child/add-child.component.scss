@@ -1,0 +1,148 @@
+.add-child-container {
+    .search-child-container {
+        min-width: 11.375rem;
+        max-width: 40.25rem;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        margin-top: 3rem;
+
+        .full-width-field {
+            width: 100%;
+        }
+
+        .user-name {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .add-child-description {
+            margin-bottom: 2rem;
+        }
+
+        .register-button-container {
+            text-align: right;
+
+            .register-button {
+                color: #ffffff;
+                background: #157AF8;
+
+                &:hover {
+                    cursor: pointer;
+                    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+                }
+
+                &:active {
+                    background-color: #6eb9f7;
+                    background-size: 100%;
+                    transition: background 0s;
+                }
+
+                &:disabled {
+                    cursor: no-drop;
+                    opacity: 0.5;
+                }
+            }
+        }
+
+       
+
+        .search-results-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            margin-top: 3rem;
+        }
+    }
+
+    .add-child {
+        height: 5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border: 1px solid #bdbbbb;
+        text-indent: 1rem;
+        margin: 2rem 6rem 0rem 6rem;
+        z-index: 999;
+        box-shadow: 1px 1px 1px 1px #888888;
+        box-shadow: 2px 2px 15px 2px #cbc8c8;
+
+        .child-name {
+            font-size: 20px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .child-details-heading {
+            display: flex;
+            margin-left: 1rem;
+            .field {
+                margin-right: 7rem;
+            }
+        }
+        .add-button-div {
+            margin-left: auto;
+            margin-right: 1.5rem;
+
+            .add-button {
+                color: #ffffff;
+                background: #157AF8;
+
+                &:hover {
+                    cursor: pointer;
+                    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+                }
+
+                &:active {
+                    background-color: #6eb9f7;
+                    background-size: 100%;
+                    transition: background 0s;
+                }
+            }
+        }
+    }
+
+    .child-card-listing {
+        display: flex;
+        display: -webkit-flex;
+        flex-flow: row wrap;
+        align-content: space-between;
+        // justify-content: space-evenly;
+        padding-bottom: 2rem;
+    }
+    .add-another-child-div {
+        text-align: right;
+        margin-right: 3rem;
+        padding-bottom: 3rem;
+        .add-another-child-button {
+            color: #ffffff;
+                background: #157AF8;
+
+                &:hover {
+                    cursor: pointer;
+                    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+                }
+
+                &:active {
+                    background-color: #6eb9f7;
+                    background-size: 100%;
+                    transition: background 0s;
+                }
+
+                &:disabled {
+                    cursor: no-drop;
+                    opacity: 0.5;
+                }
+        }
+    }
+
+}
+
+.field-name {
+    font-size: 14px;
+    color: #929292;
+}
+
+.field-value {
+    font-size: 15px;
+    margin-top: 0.5rem;
+}

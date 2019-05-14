@@ -1,0 +1,70 @@
+<div class="child-details-container" [ngClass]="{'is-loading': loading}">
+    <div class="child-name">
+        {{childDetails.FullName}}
+    </div>
+    <div class="child-details">
+        <div class="details">
+            <div class="field">
+                Place of Birth
+                <div class="field-value">
+                    {{childDetails.POB}}
+                </div>
+            </div>
+            <div class="field">
+                Mothers Name
+                <div class="field-value">
+                    {{childDetails.MothersName}}
+                </div>
+            </div>
+            <div class="field">
+                Date of Birth
+                <div class="field-value">
+                    {{childDetails.DOB | date}}
+                </div>
+            </div>
+            <div class="field">
+                Next Vaccination Due
+                <div class="field-value">
+                    {{childDetails.NextVaccinationDate | date}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="comment-box-container" *ngIf="isCommentBoxEnabled">
+        <div class="add-comment-title">Add Comment</div>
+        <textarea name="comments" class="textarea" maxlength="5000" [(ngModel)]="comments" matInput
+            placeholder="Enter the comments">
+        </textarea>
+        <div class="save-button-container">
+            <button [disabled]="!comments" mat-raised-button type="button"
+                class="save-button" (click)="saveComment()">Save</button>
+        </div>
+    </div>
+    <div class="vaccination-grid">
+        <mat-grid-list cols="10" rowHeight="50" rowWidth="10">
+            <mat-grid-tile class="cyan-bg" [colspan]="1" [rowspan]="2">Vaccine Name</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg" [colspan]="1" [rowspan]="2">Given On/ Due On</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg" [colspan]="8" [rowspan]="1">Schedule</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg">At Birth</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg">6 Weeks</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg">10 Weeks</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg">14 Weeks</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg">9-12 Months</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg">1-2 yr</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg">5-6 yr</mat-grid-tile>
+            <mat-grid-tile class="cyan-bg">10-15 yr</mat-grid-tile>
+
+            <mat-grid-tile>BCG</mat-grid-tile>
+            <mat-grid-tile>2 October 2019</mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>

@@ -1,0 +1,54 @@
+<div class="global-header" id="globalHeader" *ngIf="loginService.isUserLoggedIn">
+    <div class="user-details">
+        <div class="bell-icon-div">
+            <div class="notification-total">10</div>
+            <mat-icon class="material-icons">notifications</mat-icon>
+        </div>
+        <div class="user-name">
+            Hi {{(loginService && loginService.currentUser) ? loginService.currentUser.FullName : ''}}
+        </div>
+        <div class="logout" (click)="logout();">
+            logout
+        </div>
+    </div>
+</div>
+<nav class="global-nav mat-elevation-z6" *ngIf="loginService.isUserLoggedIn">
+    <div class="nav-header">
+        <div class="app-name">eVacc</div>
+    </div>
+    <div class="nav-items-container">
+        <div class="nav-item" *ngFor="let navItem of dataService.navItems">
+            <div class="nav-item-title" [ngClass]="{'is-active': navItem.isActive}" (click)="navigateTo(navItem)">{{navItem.Title}}</div>
+            <div class="sub-nav-item" *ngIf="navItem.SubMenu && navItem.isActive">
+                <div *ngFor="let subNavItem of navItem.SubMenu" (click)="navigateToSubMenu(subNavItem, navItem);" [ngClass]="{'is-active': subNavItem.isActive}">
+                    {{subNavItem.Title}}
+                </div>
+            </div>
+            <div class="add-child-container" *ngIf="navItem.Title == 'Children' && navItem.isActive" (click)="navigateToAddChild();">
+                <span class="icon">
+                    <i class="material-icons">
+                        add_circle_outline
+                    </i>
+                </span>
+                <span class="add-child-text">Add Child</span>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="main-content" [ngClass]="{'no-margin': !loginService.isUserLoggedIn}">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- <div class="footer">
+    <div class="footer-container">
+        <div class="copy-right-notes">
+            2019 eVacc Copyrights
+        </div>
+        <div class="privacy-div">
+            Privacy
+        </div>
+        <div class="terms">
+            Terms
+        </div>
+    </div>
+</div> -->

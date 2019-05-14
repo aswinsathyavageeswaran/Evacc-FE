@@ -1,0 +1,35 @@
+<div class="login-container" [ngClass]="{'is-loading': loading}">
+    <div class="content">
+        <div class="image-div">
+            <img src="../../assets/login-img.jpg">
+        </div>
+        <div class="login-form-div">
+            <label>Sign in with your Username</label>
+            <form class="login-form">
+                <mat-form-field class="full-width-field">
+                    <input matInput id="email" [(ngModel)]="username" name="username" autocomplete="off" required
+                        autofocus placeholder="Enter your username">
+                </mat-form-field>
+
+                <mat-form-field class="full-width-field">
+                    <input matInput id="passwordAutofill" [(ngModel)]="password" name="password" autocomplete="off"
+                        required type="password" placeholder="Password">
+                </mat-form-field>
+            </form>
+            <div class="login-forgot-btn-container">
+                <div>
+                    <a [routerLink]="['/register']" class="create-an-account-link">New to eVacc? Create an account</a>
+                </div>
+                <div class="submit-btn-container">
+                    <button class="login-btn" id="submitButton" type="submit" (click)="login();"
+                        [disabled]="(!username || !username.trim().length) || (!password || !password.trim().length)">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="caption">
+       <div>Complete Vaccination</div><div class="separator"></div><div>Healthy Tomorrow</div>
+    </div>
+</div>
+
+<app-spinner *ngIf="loading"></app-spinner>

@@ -1,0 +1,71 @@
+<div class="child-search-container" [ngClass]="{'is-loading': loading}">
+    <div class="child-search-title">
+        Child Search
+    </div>
+    <div class="child-search-note">
+        Enter details and search for a child
+    </div>
+    <div class="search-form">
+        <form [formGroup]="childSearchForm" (ngSubmit)="submitForm(childSearchForm.value)">
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="date-of-birth" formControlName="DOB" autocomplete="off"
+                        placeholder="Date of Birth">
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="mothers-name" formControlName="MothersName" autocomplete="off"
+                        placeholder="Mother's Name">
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="place-of-birth" formControlName="PlaceofBirth" autocomplete="off"
+                        placeholder="Place of Birth">
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="birth-id" formControlName="BirthId" autocomplete="off" placeholder="Birth ID">
+                </mat-form-field>
+            </section>
+            <div class="submit-button-container">
+                <button [disabled]="!childSearchForm.valid" mat-raised-button type="submit"
+                    class="submit-button">Search</button>
+            </div>
+        </form>
+        <div class="error-msg" *ngIf="showErrorMsg">
+            You should enter atleast any of these fields.
+        </div>
+    </div>
+    <div class="child-details-container" *ngIf="childDetails && childDetails.length">
+        <div class="child-details" *ngFor="let child of childDetails">
+            <div class="child-name">
+                {{child.FullName}}
+            </div>
+            <div class="child-details-heading">
+                <div class="field">
+                    <label class="field-name">Birth ID</label>
+                    <div class="field-value">{{child.BirthId}}</div>
+                </div>
+                <div class="field">
+                    <label class="field-name">Date of Birth</label>
+                    <div class="field-value">{{child.DOB | date}}</div>
+                </div>
+                <div class="field">
+                    <label class="field-name">Mother's Name</label>
+                    <div class="field-value">{{child.MothersName}}</div>
+                </div>
+                <div class="field">
+                    <label class="field-name">Place of Birth</label>
+                    <div class="field-value">{{child.POB}}</div>
+                </div>
+                <div class="view-button-div">
+                    <button mat-raised-button type="button" class="view-button" (click)="viewDetails(child);">View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>

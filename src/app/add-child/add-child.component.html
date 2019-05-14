@@ -1,0 +1,49 @@
+<div class="add-child-container">
+    <!-- <app-nav-item></app-nav-item> -->
+    <div class="search-child-container">
+        <div class="user-name">
+            Add your Child
+        </div>
+        <div class="add-child-description">
+            Add Your Child using Birth Identiﬁcation Number.
+        </div>
+        <mat-form-field class="full-width-field">
+            <input matInput id="birthId" [(ngModel)]="birthId" autocomplete="off" required autofocus
+                placeholder="Birth ID">
+        </mat-form-field>
+        <div class="register-button-container">
+            <button [disabled]="!birthId || !birthId.trim().length" mat-raised-button type="button"
+                class="register-button" (click)="searchChild()">Search</button>
+        </div>
+        <!-- <div class="search-results-title">
+            Search Results
+        </div> -->
+    </div>
+    <div class="add-child" *ngIf="childDetails">
+        <div class="child-name">
+            {{childDetails.FullName}}
+        </div>
+        <div class="child-details-heading">
+            <div class="field">
+                <label class="field-name">Birth ID</label>
+                <div class="field-value">{{childDetails.BirthId}}</div>
+            </div>
+            <div class="field">
+                <label class="field-name">Date of Birth</label>
+                <div class="field-value">{{childDetails.DOB | date}}</div>
+            </div>
+            <div class="field">
+                <label class="field-name">Mother's Name</label>
+                <div class="field-value">{{childDetails.MothersName}}</div>
+            </div>
+            <div class="field">
+                <label class="field-name">Place of Birth</label>
+                <div class="field-value">{{childDetails.POB}}</div>
+            </div>
+            <div class="add-button-div">
+                <button mat-raised-button type="button" class="add-button" (click)="addChild();">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
