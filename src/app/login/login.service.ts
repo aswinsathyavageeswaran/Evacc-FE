@@ -92,6 +92,7 @@ export class LoginService {
                 // Hospital
                 case 2: {
                     this.dataService.navItems = this.dataService.hospitalLoginNavItems;
+                    this.dataService.isGridEditable = true;
                     this.router.navigateByUrl("/searchchild");
                 }
                 break;

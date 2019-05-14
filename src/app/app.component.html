@@ -13,9 +13,12 @@
     </div>
 </div>
 <nav class="global-nav mat-elevation-z6" *ngIf="loginService.isUserLoggedIn">
-    <div class="nav-header">
-        <div class="app-name">eVacc</div>
+    <div class="app-logo">
+        <img src="../assets/images/logo.png">
     </div>
+    <!-- <div class="nav-header">
+        <div class="app-name">eVacc</div>
+    </div> -->
     <div class="nav-items-container">
         <div class="nav-item" *ngFor="let navItem of dataService.navItems">
             <div class="nav-item-title" [ngClass]="{'is-active': navItem.isActive}" (click)="navigateTo(navItem)">{{navItem.Title}}</div>
@@ -32,6 +35,14 @@
                 </span>
                 <span class="add-child-text">Add Child</span>
             </div>
+        </div>
+    </div>
+    <div class="evacc-text">
+        <div>
+            Total Vaccination
+        </div>
+        <div>
+            Healthy Future
         </div>
     </div>
 </nav>

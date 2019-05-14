@@ -31,16 +31,22 @@
         </div>
     </div>
     <div class="comment-box-container" *ngIf="isCommentBoxEnabled">
-        <div class="add-comment-title">Add Comment</div>
-        <textarea name="comments" class="textarea" maxlength="5000" [(ngModel)]="comments" matInput
-            placeholder="Enter the comments">
-        </textarea>
-        <div class="save-button-container">
-            <button [disabled]="!comments" mat-raised-button type="button"
-                class="save-button" (click)="saveComment()">Save</button>
+        <button mat-raised-button type="button" class="add-comment-button blue-button"
+            (click)="isCommentBoxDisplayed = true">Add Comment</button>
+
+        <div *ngIf="isCommentBoxDisplayed">
+            <textarea name="comments" class="comments-textarea" maxlength="5000" [(ngModel)]="comments" matInput
+                placeholder="Enter the comments">
+            </textarea>
+            <div class="save-button-container">
+                <button [disabled]="!comments" mat-raised-button type="button" class="save-button blue-button"
+                    (click)="saveComment()">Save</button>
+                <button mat-raised-button type="button" class="cancel-button blue-button"
+                    (click)="comments = ''; isCommentBoxDisplayed = false;">Cancel</button>
+            </div>
         </div>
     </div>
-    <div class="vaccination-grid">
+    <div class="vaccination-grid" *ngIf="vaccinationDetails">
         <mat-grid-list cols="10" rowHeight="50" rowWidth="10">
             <mat-grid-tile class="cyan-bg" [colspan]="1" [rowspan]="2">Vaccine Name</mat-grid-tile>
             <mat-grid-tile class="cyan-bg" [colspan]="1" [rowspan]="2">Given On/ Due On</mat-grid-tile>
@@ -54,17 +60,20 @@
             <mat-grid-tile class="cyan-bg">5-6 yr</mat-grid-tile>
             <mat-grid-tile class="cyan-bg">10-15 yr</mat-grid-tile>
 
-            <mat-grid-tile>BCG</mat-grid-tile>
-            <mat-grid-tile>2 October 2019</mat-grid-tile>
-            <mat-grid-tile></mat-grid-tile>
-            <mat-grid-tile></mat-grid-tile>
-            <mat-grid-tile></mat-grid-tile>
-            <mat-grid-tile></mat-grid-tile>
-            <mat-grid-tile></mat-grid-tile>
-            <mat-grid-tile></mat-grid-tile>
-            <mat-grid-tile></mat-grid-tile>
-            <mat-grid-tile></mat-grid-tile>
+            <div *ngFor="let vaccine of vaccinationDetails">
+                <mat-grid-tile>{{vaccine.VaccinationName}}</mat-grid-tile>
+                <mat-grid-tile>{{vaccine.DueDate | date}}</mat-grid-tile>
+                <div *ngFor="let schedule of vaccine.Schedule">
+                    <mat-grid-tile (click)="changeStatus(schedule)"
+                        [ngClass]="{'is-done' : schedule.Status == 'Done', 'is-pending' : schedule.Status == 'Pending', 'is-due' : schedule.Status == 'Due', 'is-overdue' : schedule.Status == 'Overdue', 'is-edit-mode' : (canEditSchedule && schedule.Status != 'Dummy' && schedule.Status != 'Pending' && schedule.Status != 'Done')}">
+                    </mat-grid-tile>
+                </div>
+            </div>
         </mat-grid-list>
+        <div class="save-button-container">
+            <button mat-raised-button type="button" class="save-button blue-button"
+                (click)="saveUpdatedSchedule()">Save</button>
+        </div>
     </div>
 </div>
 <app-spinner *ngIf="loading"></app-spinner>

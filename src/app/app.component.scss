@@ -13,6 +13,7 @@
 
         .bell-icon-div {
             margin-right: 1rem;
+
             mat-icon {
                 font-size: 2.25rem;
                 color: #9E9E9E;
@@ -102,19 +103,28 @@
     background: #969696;
     box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
 
-    .nav-header {
-        height: 5rem;
-        background: #969696;
-        align-items: center;
-        margin-bottom: 1rem;
-        font-family: Roboto;
-        font-weight: 900;
-        padding-top: 1rem;
-        color: #e6e6e6;
-        font-size: 2.75rem;
+    // .nav-header {
+    //     height: 5rem;
+    //     background: #969696;
+    //     align-items: center;
+    //     margin-bottom: 1rem;
+    //     font-family: Roboto;
+    //     font-weight: 900;
+    //     padding-top: 1rem;
+    //     color: #e6e6e6;
+    //     font-size: 2.75rem;
 
-        .app-name {
-            text-align: center;
+    //     .app-name {
+    //         text-align: center;
+    //         margin-right: 1.5rem;
+    //     }
+    // }
+    .app-logo {
+        text-align: center;
+        margin-top: 2rem;
+
+        img {
+            height: 4rem;
             margin-right: 1.5rem;
         }
     }
@@ -127,51 +137,69 @@
             color: #ffffff;
             font-size: 1.4rem;
             margin-bottom: 2rem;
+
             .nav-item-title {
                 padding: 0.5rem;
+
                 &:hover {
                     cursor: pointer;
                     background: #b6b6b6;
                 }
             }
+
             .sub-nav-item {
                 margin: 1rem 0rem 1rem 0rem;
                 font-size: 16px;
-                div{
+
+                div {
                     margin-bottom: 0.5rem;
                     padding: 0.5rem;
                     text-indent: 3.4375rem;
-                    &:hover{
+
+                    &:hover {
                         cursor: pointer;
                         background: #b6b6b6;
                     }
                 }
             }
+
             .add-child-container {
                 font-size: 16px;
                 vertical-align: middle;
                 margin-left: -2.5rem;
                 padding: 0.5rem;
+
                 .icon {
-                    i{
+                    i {
                         font-size: 18px;
                         position: relative;
                         top: 3px;
                     }
                 }
+
                 .add-child-text {
                     padding: 10px;
                 }
+
                 &:hover {
                     cursor: pointer;
                     background: #b6b6b6;
                 }
             }
         }
+
         .is-active {
             background: #b6b6b6;
             color: #000000;
         }
+    }
+
+    .evacc-text {
+        text-align: center;
+        margin-top: 11rem;
+        font-size: 20px;
+        color: #ffffff;
+        bottom: 0;
     }
 }
 
@@ -186,5 +214,5 @@
 }
 
 .no-margin {
-    margin-left: 0 !important; 
+    margin-left: 0 !important;
 }

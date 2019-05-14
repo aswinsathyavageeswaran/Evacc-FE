@@ -54,6 +54,7 @@ export class DataService {
 
     public infantDetails: Array<any> = [];
     public loggedInUserName: string = "";
+    public isGridEditable: boolean = false;
 
     constructor(
         private http: HttpClient,
@@ -108,5 +109,15 @@ export class DataService {
     public editProfile(payload: any): Observable<any> {
         const url = `${this.baseURL}/UpdateProfile`;
         return this.http.put(url, payload);
+    }
+
+    public getVaccinationDetails(InfantId:number): Observable<any> {
+        const url = `${this.baseURL}/GetVaccinationDetailsTable/${InfantId}`;
+        return this.http.get(url);
+    }
+
+    public updateVaccinationSchedule(payload: any): Observable<any> {
+        const url = `${this.baseURL}/UpdateVaccinationDeatils`;
+        return this.http.post(url, payload);
     }
 }

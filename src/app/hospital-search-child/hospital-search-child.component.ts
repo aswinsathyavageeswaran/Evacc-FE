@@ -53,6 +53,6 @@ export class HospitalChildSearchComponent implements OnInit {
 
     public viewDetails(childDetails: any): void {
         this.dataService.infantDetails = this.childDetails;
-        this.router.navigateByUrl(`child/${childDetails.InfantId}/true`);
+        this.router.navigateByUrl(`child/${childDetails.InfantId}/${this.dataService.isGridEditable}`);
     }
 }

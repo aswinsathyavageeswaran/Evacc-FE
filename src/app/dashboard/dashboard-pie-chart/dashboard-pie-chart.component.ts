@@ -7,16 +7,14 @@ import { Component } from '@angular/core';
 })
 export class DashboardPieChartComponent {
 
-    public pieChartLabels: string[] = ["Pending", "InProgress", "OnHold", "Complete", "Cancelled"];
-    public pieChartData: number[] = [21, 39, 10, 14, 16];
-    public pieChartType: string = 'doughnut';
+    public pieChartLabels: string[] = ["Pending", "InProgress", "OnHold"];
+    public pieChartData: number[] = [21, 39, 10];
+    public pieChartType: string = 'line';
     public pieChartOptions: any = {
         'backgroundColor': [
             "#FF6384",
             "#4BC0C0",
-            "#FFCE56",
-            "#E7E9ED",
-            "#36A2EB"
+            "#FFCE56"
         ]
     }
 

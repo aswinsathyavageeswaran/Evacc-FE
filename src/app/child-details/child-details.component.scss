@@ -29,7 +29,7 @@
         .add-comment-title {
             font-size: 18px;
         }
-        textarea {
+        .comments-textarea {
             width: 36rem;
             border: 1px solid #d4d4d4;
             height: 9rem;
@@ -37,35 +37,12 @@
             padding: 1rem;
             resize: none;
         }
-        .save-button-container {
-            text-align: right;
-            margin-top: 1rem;
-            .save-button {
-                color: #ffffff;
-                background: #157AF8;
-
-                &:hover {
-                    cursor: pointer;
-                    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
-                }
-
-                &:active {
-                    background-color: #6eb9f7;
-                    background-size: 100%;
-                    transition: background 0s;
-                }
-
-                &:disabled {
-                    cursor: no-drop;
-                    opacity: 0.5;
-                }
-            }
-        }
+        
     }
     .vaccination-grid {
         margin: 2rem;
         mat-grid-list {
-            border: 1px solid black;
+            border-left: 1px solid black;
             mat-grid-tile {
                 border-bottom: 1px solid;
                 border-right: 1px solid black;
@@ -83,4 +60,63 @@
 
 .is-loading {
     opacity: 0.5;
+}
+
+.is-done {
+    background: #85C226;
+}
+
+.is-overdue {
+    background: red;
+}
+
+.is-due {
+    background: yellow;
+}
+
+.is-pending {
+    background: #414141;
+
+}
+
+.is-edit-mode {
+    cursor: pointer;
+}
+
+.save-button-container {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.blue-button {
+    color: #ffffff;
+    background: #157AF8;
+
+    &:hover {
+        cursor: pointer;
+        background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+    }
+
+    &:active {
+        background-color: #6eb9f7;
+        background-size: 100%;
+        transition: background 0s;
+    }
+
+    &:disabled {
+        cursor: no-drop;
+        opacity: 0.5;
+    }
+}
+
+.save-button {
+    width: 6rem;
+}
+
+.add-comment-button {
+    width: 8rem;
+}
+
+.cancel-button {
+    margin-left: 1rem;
 }
