@@ -44,7 +44,25 @@ export class DataService {
             "Title": "Dashboard",
             "isActive": true,
             "link": "/dashboard",
-            SubMenu: null
+            "SubMenu": null
+        },
+        {
+            "Title": "Manage Field Staff",
+            "isActive": false,
+            "link": "/manageuser/fieldstaff",
+            "SubMenu": null
+        },
+        {
+            "Title": "Manage Hospital",
+            "isActive": false,
+            "link": "/manageuser/hospital",
+            "SubMenu": null
+        },
+        {
+            "Title": "Profile",
+            "isActive": false,
+            "link": "/profile",
+            "SubMenu": null
         }
     ]
 
@@ -119,5 +137,15 @@ export class DataService {
     public updateVaccinationSchedule(payload: any): Observable<any> {
         const url = `${this.baseURL}/UpdateVaccinationDeatils`;
         return this.http.post(url, payload);
+    }
+
+    public getFieldStaffs(userId: number): Observable<any> {
+        const url = `${this.baseURL}/admin/GetAllFieldStaffsForLocalAdmin/${userId}`;
+        return this.http.get(url);
+    }
+
+    public getHospitals(userId: number): Observable<any> {
+        const url = `${this.baseURL}/admin/GetAllHospitalsForLocalAdmin/${userId}`;
+        return this.http.get(url);
     }
 }

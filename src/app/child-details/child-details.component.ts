@@ -21,6 +21,13 @@ export class ChildDetailsComponent implements OnInit, OnDestroy {
     private backupScheduleList: Array<any> = [];
     private updatedScheduleList: Array<any> = [];
     public isCommentBoxDisplayed: boolean = false;
+    public categories: Array<any> = [
+        "Medicine Availability",
+        "Lack of awarness",
+        "Health Issues",
+        "Religious",
+        "Others"
+    ]
 
     constructor(
         private route: ActivatedRoute,
@@ -30,7 +37,6 @@ export class ChildDetailsComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
         this.isCommentBoxEnabled = this.dataService.isCommentBoxEnabled;
-        this.dataService.isCommentBoxEnabled = false;
         if (!this.infantDetails) {
             this.route.params.subscribe(params => {
                 this.childDetails = this.dataService.infantDetails.find(i => i.InfantId == params.id);
@@ -120,6 +126,8 @@ export class ChildDetailsComponent implements OnInit, OnDestroy {
         .pipe(finalize(() => this.loading = false))
         .subscribe(res => {
             if(res) {
+                this.updatedScheduleList = [];
+                this.backupScheduleList = [];
                 this.dataService.launchSuccessToast("Vaccination Schedule Updated successfully");
             }
             else {

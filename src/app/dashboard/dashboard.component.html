@@ -1,3 +1,88 @@
 <div class="container">
+    <div class="filter-container">
+        <button mat-icon-button (click)="openFilterSection = !openFilterSection" id="filterButton"
+            class="filter-button">
+            <i class="fa fa-filter"></i>
+            Filter
+        </button>
+        <div class="filter-form" *ngIf="openFilterSection">
+            <div class="dropdown-container">
+                <div class="vaccination-dropdown-container">
+                    <mat-form-field class="filter-form-dropdown">
+                        <mat-select class="vaccination-dropdown" id="searchByVaccination" placeholder="Vaccination">
+                            <mat-option *ngFor="let vaccine of vaccinations" [value]="pub.Name">
+                                {{pub.Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="locality-dropdown-container">
+                    <mat-form-field class="filter-form-dropdown">
+                        <mat-select class="locality-dropdown" id="searchByLocality" placeholder="Locality">
+                            <mat-option *ngFor="let locality of localities" [value]="locality.Name">
+                                {{locality.Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="status-filter-container">
+                <div class="checkbox-container">
+                    <div class="checkbox-div">
+                        <mat-checkbox id="dueCheckbox" name="dueCheckbox" aria-label="Due Checkbox" class="md-primary">
+                            Due
+                        </mat-checkbox>
+                    </div>
+                    <div class="checkbox-div">
+                        <mat-checkbox id="missedCheckbox" name="missedCheckbox" aria-label="Missed Checkbox"
+                            class="md-primary">
+                            Missed
+                        </mat-checkbox>
+                    </div>
+                    <div class="checkbox-div">
+                        <mat-checkbox id="doneCheckbox" name="doneCheckbox" aria-label="Done Checkbox" class="md-primary">
+                            Done
+                        </mat-checkbox>
+                    </div>
+                </div>
+                <div class="date-filter-container">
+                    <div class="date-filter">
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="picker" placeholder="From date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+    
+                    </div>
+                    <div class="date-filter">
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="picker1" placeholder="To date">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+        
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <app-dashboard-pie-chart></app-dashboard-pie-chart>
+    <div class="table">
+        <table style="width:100%">
+            <tr>
+                <th>Child ID</th>
+                <th>Child Name</th>
+                <th>PHC</th>
+                <th>Vaccination</th>
+                <th>Status</th>
+            </tr>
+            <tr *ngFor="let val of data">
+                <td>{{val.ChildID}}</td>
+                <td>{{val.ChildName}}</td>
+                <td>{{val.PHC}}</td>
+                <td>{{val.Vaccination}}</td>
+                <td>{{val.Status}}</td>
+            </tr>
+        </table>
+    </div>
 </div>

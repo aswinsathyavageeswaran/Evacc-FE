@@ -1,4 +1,15 @@
-<div>
-    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" height="100" 
-        [options]="pieChartOptions" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+<div class="dashboard-container">
+    <div class="chart-container">
+        <div class="pie-chart">
+            <div class="chart-name">Vaccination Status</div>
+            <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" width="500" height="400"
+                [options]="pieChartOptions" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"
+                textAlign="right"></canvas>
+        </div>
+        <div class="scatter-graph">
+            <canvas baseChart [datasets]="scatterChartData" [options]="scatterChartOptions" width="600" height="400"
+                 [chartType]="scatterChartType">
+            </canvas>
+        </div>
+    </div>
 </div>

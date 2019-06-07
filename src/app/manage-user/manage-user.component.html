@@ -1,0 +1,71 @@
+<div class="user-list-container" [ngClass]="{'is-loading': loading}">
+    <div class="page-name">
+        {{pageName}}
+    </div>
+    <div class="add-new-button-div">
+        <button mat-raised-button type="button" class="add-new-button blue-button" (click)="addNew();">Add New</button>
+    </div>
+    <div class="title">
+        {{pageName == "Field Staff Details" ? 'Add Field Staff' : 'Add Hospital'}}
+    </div>
+    <div class="add-new-staff-container" *ngIf="showAddEditBox">
+        <form [formGroup]="userAddForm" (ngSubmit)="submitForm(userAddForm.value)">
+            <section>
+                <mat-form-field class="full-width-field">
+                    <input matInput id="name" formControlName="FullName" autocomplete="off" placeholder="Name">
+                </mat-form-field>
+            </section>
+            <section>
+                <div class="flex-div">
+                    <mat-form-field class="full-width-field">
+                        <input matInput id="registrationId" formControlName="RegistrationId" autocomplete="off" placeholder="Emp id">
+                    </mat-form-field>
+                    <mat-form-field class="full-width-field phc-input">
+                        <input matInput id="phc" formControlName="RegisteredPHC" autocomplete="off" placeholder="PHC">
+                    </mat-form-field>
+                    <mat-form-field class="full-width-field mobile-input">
+                        <input matInput id="mobile" formControlName="Mobile" autocomplete="off" placeholder="Contact">
+                    </mat-form-field>
+                </div>
+            </section>
+            <div class="save-button-div">
+                <button [disabled]="!userAddForm.valid" mat-raised-button type="submit" class="save-button blue-button">Save</button>
+            </div>
+        </form>
+    </div>
+    <div class="user-listing-container" *ngFor="let user of userList">
+        <div class="user-name">
+            {{user.FullName}}
+        </div> 
+        <div class="user-details">
+            <div class="field">
+                <div class="field-name">
+                    Emp ID
+                </div>
+                <div class="field-value">
+                    {{user.RegistrationId}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-name">
+                    PHC
+                </div>
+                <div class="field-value">
+                    {{user.RegisteredPHC}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-name">
+                    Contact Number
+                </div>
+                <div class="field-value">
+                    {{user.Mobile}}
+                </div>
+            </div>
+            <div class="edit-button-div">
+                <button mat-raised-button type="button" class="edit-button blue-button" (click)="editUser(user);">Edit</button>
+            </div>
+        </div> 
+    </div>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>

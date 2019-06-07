@@ -7,6 +7,7 @@ import { ChildDetailsComponent } from './child-details/child-details.component';
 import { HospitalChildSearchComponent } from './hospital-search-child/hospital-search-child.component';
 import { ProfileReadonlyViewComponent } from './profile-readonly-view/profile-readonly-view.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: DashboardComponent
+  },
+  {
+    path: "manageuser/:pageName",
+    component: ManageUserComponent
   }
 ];
 

@@ -196,10 +196,12 @@
 
     .evacc-text {
         text-align: center;
-        margin-top: 11rem;
         font-size: 20px;
         color: #ffffff;
         bottom: 0;
+        position: fixed;
+        margin-bottom: 2rem;
+        left: 3rem;
     }
 }
 

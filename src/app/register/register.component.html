@@ -1,4 +1,4 @@
-<div class="register-page-container">
+<div class="register-page-container" [ngClass]="{'is-loading': loading}">
     <div class="register-form">
         <div class="heading">
             {{isRegistrationPage ? "Register" : "Profile"}} 

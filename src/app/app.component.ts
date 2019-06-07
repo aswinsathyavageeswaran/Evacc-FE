@@ -85,6 +85,8 @@ export class AppComponent implements OnInit {
     this.loginService.currentUser = null;
     this.dataService.infantDetails = [];
     this.dataService.loggedInUserName = "";
+    this.dataService.isGridEditable = false;
+    this.dataService.isCommentBoxEnabled = false;
     this.dataService.navItems = [
       {
           "Title": "Children",

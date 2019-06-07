@@ -35,6 +35,13 @@
             (click)="isCommentBoxDisplayed = true">Add Comment</button>
 
         <div *ngIf="isCommentBoxDisplayed">
+            <mat-form-field class="category-dropdown">
+                    <mat-select class="category-dropdown-select" id="categoryDropDown" placeholder="Category">
+                        <mat-option *ngFor="let category of categories" [value]="category">
+                            {{category}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
             <textarea name="comments" class="comments-textarea" maxlength="5000" [(ngModel)]="comments" matInput
                 placeholder="Enter the comments">
             </textarea>
@@ -70,7 +77,7 @@
                 </div>
             </div>
         </mat-grid-list>
-        <div class="save-button-container">
+        <div class="save-button-container" *ngIf="canEditSchedule">
             <button mat-raised-button type="button" class="save-button blue-button"
                 (click)="saveUpdatedSchedule()">Save</button>
         </div>

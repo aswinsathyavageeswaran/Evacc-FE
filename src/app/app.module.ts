@@ -43,6 +43,7 @@ import { DashboardPieChartComponent } from './dashboard/dashboard-pie-chart/dash
 
 import { ChartsModule } from 'ng2-charts';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SpinnerComponent,
     ProfileReadonlyViewComponent,
     DashboardPieChartComponent,
-    DashboardComponent
+    DashboardComponent,
+    ManageUserComponent
   ],
   imports: [
     BrowserModule,
